@@ -18,12 +18,14 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class EventResponseService {
 
-    @Autowired
-    private FintAdapterEndpoints endpoints;
+    private final FintAdapterEndpoints endpoints;
 
-    @Autowired
-    @Qualifier("oauth2RestTemplate")
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+
+    public EventResponseService(FintAdapterEndpoints endpoints, @Qualifier("oauth2RestTemplate") RestTemplate restTemplate) {
+        this.endpoints = endpoints;
+        this.restTemplate = restTemplate;
+    }
 
     /**
      * Method for posting back the response to the provider.

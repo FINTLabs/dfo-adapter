@@ -7,11 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import no.fint.adapter.FintAdapterEndpoints;
 import no.fint.adapter.FintAdapterProps;
 import no.fint.event.model.HeaderConstants;
-import no.fint.customcode.service.EventHandlerService;
+import no.fint.dfo.service.EventHandlerService;
 import no.fint.sse.FintSse;
 import no.fint.sse.FintSseConfig;
 import no.fint.sse.oauth.TokenService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -33,17 +32,20 @@ public class SseInitializer {
     @Getter
     private List<FintSse> sseClients = new ArrayList<>();
 
-    @Autowired
-    private FintAdapterProps props;
+    private final FintAdapterProps props;
 
-    @Autowired
-    private FintAdapterEndpoints endpoints;
+    private final FintAdapterEndpoints endpoints;
 
-    @Autowired
-    private EventHandlerService eventHandlerService;
+    private final EventHandlerService eventHandlerService;
 
-    @Autowired(required = false)
-    private TokenService tokenService;
+    private final TokenService tokenService;
+
+    public SseInitializer(FintAdapterProps props, FintAdapterEndpoints endpoints, EventHandlerService eventHandlerService, TokenService tokenService) {
+        this.props = props;
+        this.endpoints = endpoints;
+        this.eventHandlerService = eventHandlerService;
+        this.tokenService = tokenService;
+    }
 
     @PostConstruct
     @Synchronized

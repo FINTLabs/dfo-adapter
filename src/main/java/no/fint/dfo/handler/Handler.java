@@ -1,4 +1,4 @@
-package no.fint.customcode.handler;
+package no.fint.dfo.handler;
 
 import no.fint.event.model.Event;
 import no.fint.model.resource.FintLinks;

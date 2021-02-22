@@ -7,8 +7,7 @@ import no.fint.event.model.DefaultActions;
 import no.fint.event.model.Event;
 import no.fint.event.model.HeaderConstants;
 import no.fint.event.model.Status;
-import no.fint.customcode.SupportedActions;
-import org.springframework.beans.factory.annotation.Autowired;
+import no.fint.dfo.SupportedActions;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -22,18 +21,20 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class EventStatusService {
 
-    @Autowired
-    private FintAdapterEndpoints endpoints;
+    private final FintAdapterEndpoints endpoints;
 
-    @Autowired
-    @Qualifier("oauth2RestTemplate")
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
-    @Autowired
-    private SupportedActions supportedActions;
+    private final SupportedActions supportedActions;
 
-    @Autowired
-    private FintAdapterProps props;
+    private final FintAdapterProps props;
+
+    public EventStatusService(FintAdapterEndpoints endpoints, @Qualifier("oauth2RestTemplate") RestTemplate restTemplate, SupportedActions supportedActions, FintAdapterProps props) {
+        this.endpoints = endpoints;
+        this.restTemplate = restTemplate;
+        this.supportedActions = supportedActions;
+        this.props = props;
+    }
 
     /**
      * Verifies if we can handle the event and set the status accordingly.

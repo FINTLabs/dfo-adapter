@@ -1,4 +1,4 @@
-package no.fint.customcode;
+package no.fint.dfo;
 
 import no.fint.adapter.AbstractSupportedActions;
 import org.springframework.stereotype.Component;

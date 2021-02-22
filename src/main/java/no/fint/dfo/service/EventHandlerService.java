@@ -1,4 +1,4 @@
-package no.fint.customcode.service;
+package no.fint.dfo.service;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -10,9 +10,8 @@ import no.fint.event.model.Status;
 import no.fint.event.model.health.Health;
 import no.fint.event.model.health.HealthStatus;
 import no.fint.model.resource.FintLinks;
-import no.fint.customcode.SupportedActions;
-import no.fint.customcode.handler.Handler;
-import org.springframework.beans.factory.annotation.Autowired;
+import no.fint.dfo.SupportedActions;
+import no.fint.dfo.handler.Handler;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -27,22 +26,25 @@ import java.util.concurrent.Executors;
 @Service
 public class EventHandlerService {
 
-    @Autowired
-    private EventResponseService eventResponseService;
+    private final EventResponseService eventResponseService;
 
-    @Autowired
-    private EventStatusService eventStatusService;
+    private final EventStatusService eventStatusService;
 
-    @Autowired
-    private SupportedActions supportedActions;
+    private final SupportedActions supportedActions;
 
-    @Autowired
-    private Collection<Handler> handlers;
+    private final Collection<Handler> handlers;
 
     @Getter
     private Map<String, Handler> actionsHandlerMap;
 
     private Executor executor;
+
+    public EventHandlerService(EventResponseService eventResponseService, EventStatusService eventStatusService, SupportedActions supportedActions, Collection<Handler> handlers) {
+        this.eventResponseService = eventResponseService;
+        this.eventStatusService = eventStatusService;
+        this.supportedActions = supportedActions;
+        this.handlers = handlers;
+    }
 
     public void handleEvent(String component, Event event) {
         if (event.isHealthCheck()) {

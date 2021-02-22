@@ -3,7 +3,6 @@ package no.fint.adapter.controller;
 import lombok.extern.slf4j.Slf4j;
 import no.fint.adapter.sse.SseInitializer;
 import no.fint.sse.FintSse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +13,12 @@ import java.util.List;
 @RequestMapping(value = "/admin", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AdminController {
 
-    @Autowired
+    final
     SseInitializer sseInitializer;
+
+    public AdminController(SseInitializer sseInitializer) {
+        this.sseInitializer = sseInitializer;
+    }
 
     @GetMapping("/sse")
     public List<FintSse> getSseConnections() {

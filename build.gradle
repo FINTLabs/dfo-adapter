@@ -43,11 +43,12 @@ dependencies {
     implementation 'no.fint:fint-event-model:3.0.0'
     implementation 'no.fint:fint-relation-model:1.1.5'
     implementation 'no.fint:fint-model-resource:0.3.3'
+    implementation 'no.fint:fint-administrasjon-resource-model-java:3.7.0'
+    implementation 'no.fint:fint-okonomi-resource-model-java:3.7.0'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    implementation 'no.fint:fint-administrasjon-resource-model-java:3.7.0'
 
     testImplementation 'cglib:cglib-nodep:3.3.0'
     testImplementation 'org.spockframework:spock-spring:2.0-M4-groovy-2.5'

@@ -1,20 +1,23 @@
-package no.fint.customcode.handler;
+package no.fint.dfo.handler;
 
 import no.fint.event.model.Event;
 import no.fint.model.resource.FintLinks;
-import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Set;
 
-@Service
-public class GetAllPersonHandler implements Handler{
+public class HealthHandler implements Handler {
     @Override
     public void accept(Event<FintLinks> fintLinksEvent) {
+    }
 
+    @Override
+    public boolean health() {
+        return true;
     }
 
     @Override
     public Set<String> actions() {
-        return null;
+        return Collections.emptySet();
     }
 }
