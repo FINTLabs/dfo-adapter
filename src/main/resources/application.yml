@@ -1,23 +1,27 @@
 server:
   port: 8091
 
-springfox:
-  title: 'FINT SSE Adapter Skeleton'
-  version: '@version@'
+#springfox:
+#  title: 'FINT DFØ Adapter'
+#  version: '@version@'
 
-base-url: https://play-with-fint-adapter.felleskomponent.no/provider
 fint:
   adapter:
-    organizations: pwfa.no
-    sse-endpoint: ${base-url}/sse/%s
-    status-endpoint: ${base-url}/status
-    response-endpoint: ${base-url}/response
+    endpoints:
+      sse: /sse/%s
+      status: /status
+      response: /response
+      providers:
+        personal: https://beta.felleskomponent.no/administrasjon/personal/provider
+        kodeverk: https://beta.felleskomponent.no/administrasjon/kodeverk/provider
+        fullmakt: https://beta.felleskomponent.no/administrasjon/fullmakt/provider
+        organisasjon: https://beta.felleskomponent.no/administrasjon/organisasjon/provider
+        ## Denne skal flyttes over på ny url
+        faktura: https://beta1.felleskomponent.no/betaling/provider
 
   oauth:
+    enabled: true
+
+security:
+  basic:
     enabled: false
-#    username:
-#    password:
-#    client-id:
-#    client-secret:
-#    access-token-uri:
-#    scope:

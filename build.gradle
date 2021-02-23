@@ -36,8 +36,10 @@ dependencies {
 
     implementation "com.google.guava:guava:30.1-jre"
 
-    implementation 'org.glassfish.jersey.core:jersey-common:3.0.1'
-    implementation 'org.glassfish.jersey.core:jersey-client:3.0.1'
+    implementation 'org.glassfish.jersey.core:jersey-common:2.29.1'
+    implementation 'org.glassfish.jersey.core:jersey-client:2.29.1'
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.3'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.3.3'
 
     implementation 'no.fint:fint-sse:1.4.0'
     implementation 'no.fint:fint-event-model:3.0.0'
