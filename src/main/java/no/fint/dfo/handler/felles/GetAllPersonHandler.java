@@ -5,6 +5,7 @@ import no.fint.event.model.Event;
 import no.fint.event.model.ResponseStatus;
 import no.fint.model.administrasjon.personal.Personalressurs;
 import no.fint.model.felles.FellesActions;
+import no.fint.model.felles.kodeverk.iso.Landkode;
 import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.felles.kompleksedatatyper.Personnavn;
 import no.fint.model.resource.FintLinks;
@@ -33,6 +34,7 @@ public class GetAllPersonHandler implements Handler {
 
         personResource.addPersonalressurs(Link.with(Personalressurs.class, "ansattnummer", "123456"));
         personResource.addPersonalressurs(Link.with(Personalressurs.class, "systemid", "61122334455"));
+        personResource.addStatsborgerskap(Link.with(Landkode.class, "systemid", "DE"));
 
         response.setData(Collections.singletonList(personResource));
         response.setResponseStatus(ResponseStatus.ACCEPTED);

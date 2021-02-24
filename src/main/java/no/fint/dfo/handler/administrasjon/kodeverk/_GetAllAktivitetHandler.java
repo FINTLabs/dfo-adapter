@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Set;
 
 @Service
-public class GetAllObjektHandler implements Handler {
+public class _GetAllAktivitetHandler implements Handler {
     @Override
     public void accept(Event<FintLinks> fintLinksEvent) {
 
@@ -18,6 +18,6 @@ public class GetAllObjektHandler implements Handler {
 
     @Override
     public Set<String> actions() {
-        return Collections.singleton(KodeverkActions.GET_ALL_OBJEKT.name());
+        return Collections.singleton(KodeverkActions.GET_ALL_AKTIVITET.name());
     }
 }

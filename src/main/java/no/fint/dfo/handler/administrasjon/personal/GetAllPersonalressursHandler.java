@@ -36,7 +36,6 @@ public class GetAllPersonalressursHandler implements Handler {
         ansettelsesperiode.setStart(new Date());
         personalressursResource.setAnsettelsesperiode(ansettelsesperiode);
 
-        // ink.with(Klassifikasjonssystem.class, "systemid", input.getClassificationSystemId())
         personalressursResource.addPerson(
                 Link.with(
                         Person.class,

@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Set;
 
 @Service
-public class GetAllLopenummerHandler implements Handler {
+public class _GetAllLopenummerHandler implements Handler {
     @Override
     public void accept(Event<FintLinks> fintLinksEvent) {
 
