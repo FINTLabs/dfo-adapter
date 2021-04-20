@@ -45,4 +45,5 @@ public class GetAllPersonHandler implements Handler {
     public Set<String> actions() {
         return Collections.singleton(FellesActions.GET_ALL_PERSON.name());
     }
+
 }

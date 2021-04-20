@@ -13,7 +13,7 @@ fint:
         fullmakt: https://beta.felleskomponent.no/administrasjon/fullmakt/provider
         organisasjon: https://beta.felleskomponent.no/administrasjon/organisasjon/provider
         ## Denne skal flyttes over på ny url
-        faktura: https://beta1.felleskomponent.no/betaling/provider
+        ##faktura: https://beta1.felleskomponent.no/betaling/provider
 
 #  oauth:
 #    enabled: true
